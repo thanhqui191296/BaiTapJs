@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <div class="main">
+        <!-- BÀI TẬP 1 -->
+        <div class="card my-5" style="width: 22rem;">
+            <div class="card-header text-white bg-dark text-center">
+                Quản Lý Tuyển Sinh
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="inputDiem" placeholder="Điểm chuẩn">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="inputKV">Chọn khu vực</label>
+                        </div>
+                        
+                        <select class="custom-select" id="inputKhuvuc">
+                          <option>Chọn khu vực</option>
+                          <option>A</option>
+                          <option>B</option>
+                          <option>C</option>
+                          <option>X</option>
+                        </select>
+                      </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="inputDT">Chọn đối tượng</label>
+                        </div>
+                        <select class="custom-select" id="inputDoituong">
+                          <option selected>Chọn đối tượng</option>
+                          <option >1</option>
+                          <option >2</option>
+                          <option >3</option>
+                          <option >0</option>
+                        </select>
+                      </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="inputOne" placeholder="Điểm môn thứ 1">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="inputTwo" placeholder="Điểm môn thứ 2">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="inputThree" placeholder="Điểm môn thứ 3">
+                    </div>
+                    <button type="button" onclick="ketquaDiem ()" class="btn btn-danger" id="btnCalc">Kết quả</button>
+                    <p id="txtResult"></p>
+                </form>
+            </div>
+        </div>
+        <!-- BÀI TẬP 2 -->
+        <div class="card my-5" style="width: 22rem;">
+            <div class="card-header text-white bg-dark text-center">
+                Tính tiền điện
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="hoTen" placeholder="Họ Và Tên">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="soKW" placeholder="Nhập số kw">
+                    </div>
+                    <button type="button" onclick="main()" class="btn btn-danger"  id="btnMoney">Tính tiền điện</button>
+                    <p id="txtMoney"></p>
+                </form>
+            </div>
+        </div>
+        <!-- BÀI TẬP 3 -->
+        <div class="card my-5" style="width: 22rem;">
+            <div class="card-header text-white bg-dark text-center">
+                Tính tiền thuế cá nhân
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="hoTen" placeholder="Họ Và Tên">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="inputThuNhap" placeholder="Tổng thu nhập năm">
+                    </div>
+                    
+                    <button type="button" onclick="calcThue()" class="btn btn-danger"  id="btnThuNhap">Tính tiền thuế</button>
+                    <p id="txtThu"></p>
+                </form>
+            </div>
+        </div>
+        <!-- BÀI TẬP 4 -->
+        <div class="card my-5" style="width: 22rem;">
+            <div class="card-header text-white bg-dark text-center">
+                Tính tiền cáp
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="inputKhachHang">Loại khách hàng</label>
+                        </div>
+                        
+                        <select class="custom-select" id="inputKH">
+                          <option>Loại khách hàng</option>
+                          <option>Nhà Dân</option>
+                          <option>Doanh Nghiệp</option>
+                        </select>
+                      </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="inputMa" placeholder="Nhập mã khách hàng">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="inputKenh" placeholder="Số kênh cao cấp">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="inputKetNoi" placeholder="Số kết nối">
+                    </div>
+                    <button type="button" onclick="caclCap ()" class="btn btn-danger" id="btnTienCap">Tính tiền cáp</button>
+                    <p id="txtTinh"></p>
+                </form>
+            </div>
+        </div>
+ <script src="./js/Ex1.js"></script>
+ <script src="./js/Ex2.js"></script>
+ <script src="./js/Ex3.js"></script>
+ <script src="./js/Ex4.js"></script>
+</body>
+
+</html>
